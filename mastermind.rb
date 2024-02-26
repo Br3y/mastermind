@@ -14,3 +14,8 @@ loop do
   secret_code << color[rand(0..7)]
 end
 p secret_code
+
+# CodeBreaker
+loop do 
+
+end
