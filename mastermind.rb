@@ -32,4 +32,9 @@ loop do
 
   p player_pick
   
+  if secret_code == player_pick
+    puts "CodeBreaker Wins!"
+    break
+  end
+  
 end
