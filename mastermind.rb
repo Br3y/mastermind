@@ -29,5 +29,7 @@ loop do
   4.times do 
     player_pick << color[gets.chomp.to_i - 1]
   end
+
+  p player_pick
   
 end
