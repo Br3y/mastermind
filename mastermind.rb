@@ -20,4 +20,10 @@ loop do
   # keep reset or removing values every loop
   player_pick = []
 
+  puts "pick a number from 1 to 8: "
+
+  color.each_with_index do |value, index|
+    puts "#{index+1}: #{value}"
+  end
+  
 end
