@@ -20,6 +20,11 @@ loop do
   # keep reset or removing values every loop
   player_pick = []
 
+  if guess > 12
+    puts "Game Over. CodeMaker Wins!"
+    break
+  end
+
   puts "pick a number from 1 to 8: "
 
   color.each_with_index do |value, index|
@@ -36,5 +41,7 @@ loop do
     puts "CodeBreaker Wins!"
     break
   end
+
+  guess += 1
   
 end
