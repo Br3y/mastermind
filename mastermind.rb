@@ -25,5 +25,9 @@ loop do
   color.each_with_index do |value, index|
     puts "#{index+1}: #{value}"
   end
+
+  4.times do 
+    player_pick << color[gets.chomp.to_i - 1]
+  end
   
 end
