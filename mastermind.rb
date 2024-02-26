@@ -17,5 +17,7 @@ p secret_code
 
 # CodeBreaker
 loop do 
+  # keep reset or removing values every loop
+  player_pick = []
 
 end
