@@ -25,7 +25,8 @@ loop do
     break
   end
 
-  puts "pick a number from 1 to 8: "
+  # "%02d" % int_value - format number into two digits
+  puts "Guess:#{"%02d" % guess}/12 - pick a number from 1 to 8: "
 
   color.each_with_index do |value, index|
     puts "#{index+1}: #{value}"
