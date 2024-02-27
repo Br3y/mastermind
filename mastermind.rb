@@ -37,7 +37,21 @@ loop do
   end
 
   p player_pick
-  
+
+  result = []
+  secret_code.each_with_index do |maker, i|
+    player_pick.each_with_index do |breaker, j|
+      if maker == breaker
+        if i == j
+          result.push("red")
+        else 
+          result.push("white")
+        end
+      end
+    end
+  end
+  puts "how close are you winning? #{result}"
+
   if secret_code == player_pick
     puts "CodeBreaker Wins!"
     break
