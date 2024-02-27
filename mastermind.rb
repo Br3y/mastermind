@@ -6,6 +6,21 @@ secret_code = []
 # set guess to 1, max of 12 guess for codebreaker to win the game 
 guess = 1
 
+loop do 
+
+  print "Would you like to become CodeMaker or CodeBreaker( M/B )?: "
+  player = gets.chomp.to_s
+
+  if player.upcase == "M"
+    break
+  elsif player.upcase == "B"
+    break
+  else 
+    puts "Invalid Input. Try Again"
+  end
+
+end
+
 # CodeMaker
 loop do
   if (secret_code.length == 4)
@@ -17,7 +32,7 @@ loop do
   unless secret_code.include?(uniq_color)
     secret_code << uniq_color
   end
-  
+
 end
 p secret_code
 
