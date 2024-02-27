@@ -11,7 +11,13 @@ loop do
   if (secret_code.length == 4)
     break
   end
-  secret_code << color[rand(0..7)]
+
+  uniq_color = color[rand(0..7)]
+
+  unless secret_code.include?(uniq_color)
+    secret_code << uniq_color
+  end
+  
 end
 p secret_code
 
