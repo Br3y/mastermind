@@ -22,18 +22,21 @@ loop do
 end
 
 # CodeMaker
-loop do
-  if (secret_code.length == 4)
-    break
+def code_maker(secret_code, color)
+  loop do 
+    if secret_code.length == 4
+      break
+    end
+
+    uniq_color = color[rand(0..7)]
+
+    unless secret_code.include?(uniq_color)
+      secret_code << uniq_color
+    end
   end
-
-  uniq_color = color[rand(0..7)]
-
-  unless secret_code.include?(uniq_color)
-    secret_code << uniq_color
-  end
-
 end
+
+code_maker(secret_code, color)
 p secret_code
 
 # CodeBreaker
