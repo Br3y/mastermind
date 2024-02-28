@@ -1,5 +1,5 @@
 class MasterMindGame
-  attr_accessor :color:guess, :player, :player_color, :bot_color, :result
+  attr_accessor :color, :guess, :player, :player_color, :bot_color, :result
 
   def intialize(player)
     # make player choice if he want to become code maker or breaker
