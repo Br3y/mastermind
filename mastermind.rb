@@ -40,47 +40,51 @@ code_maker(secret_code, color)
 p secret_code
 
 # CodeBreaker
-loop do 
-  # keep reset or removing values every loop
-  player_pick = []
+def code_breaker(guess, color, secret_code)
+  loop do
+    player_pick = []
 
-  if guess > 12
-    puts "Game Over. CodeMaker Wins!"
-    break
-  end
+    if guess > 12
+      puts "Game Over. CodeMaker Wins!"
+      break
+    end
 
-  # "%02d" % int_value - format number into two digits
-  puts "Guess:#{"%02d" % guess}/12 - pick a number from 1 to 8: "
+    # keep reset or removing values every loop
+    puts "Guess:#{"%02d" % guess}/12 - pick a number from 1 to 8: "
 
-  color.each_with_index do |value, index|
-    puts "#{index+1}: #{value}"
-  end
+    color.each_with_index do |value, index|
+      puts "#{index+1}: #{value}"
+    end
 
-  4.times do 
-    player_pick << color[gets.chomp.to_i - 1]
-  end
+    4.times do 
+      player_pick << color[gets.chomp.to_i - 1]
+    end
 
-  p player_pick
+    p player_pick
 
-  result = []
-  secret_code.each_with_index do |maker, i|
-    player_pick.each_with_index do |breaker, j|
-      if maker == breaker
-        if i == j
-          result.push("red")
-        else 
-          result.push("white")
+    result = []
+    secret_code.each_with_index do |maker, i|
+      player_pick.each_with_index do |breaker, j|
+        if maker == breaker
+          if i == j
+            result.push("red")
+          else
+            result.push("white")
+          end
         end
       end
     end
-  end
-  puts "how close are you winning? #{result}"
 
-  if secret_code == player_pick
-    puts "CodeBreaker Wins!"
-    break
-  end
+    puts "how close are you winning? #{result}"
 
-  guess += 1
-  
+    if secret_code == player_pick
+      puts "CodeBreaker Wins!"
+      break
+    end
+
+    guess += 1
+
+  end
 end
+
+code_breaker(guess, color, secret_code)
