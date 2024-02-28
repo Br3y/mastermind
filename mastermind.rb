@@ -6,21 +6,6 @@ secret_code = []
 # set guess to 1, max of 12 guess for codebreaker to win the game 
 guess = 1
 
-loop do 
-
-  print "Would you like to become CodeMaker or CodeBreaker( M/B )?: "
-  player = gets.chomp.to_s
-
-  if player.upcase == "M"
-    break
-  elsif player.upcase == "B"
-    break
-  else 
-    puts "Invalid Input. Try Again"
-  end
-
-end
-
 # CodeMaker
 def code_maker(secret_code, color)
   loop do 
@@ -36,14 +21,11 @@ def code_maker(secret_code, color)
   end
 end
 
-code_maker(secret_code, color)
-p secret_code
-
 # CodeBreaker
 def code_breaker(guess, color, secret_code)
   loop do
     player_pick = []
-
+    
     if guess > 12
       puts "Game Over. CodeMaker Wins!"
       break
@@ -51,7 +33,7 @@ def code_breaker(guess, color, secret_code)
 
     # keep reset or removing values every loop
     puts "Guess:#{"%02d" % guess}/12 - pick a number from 1 to 8: "
-
+    
     color.each_with_index do |value, index|
       puts "#{index+1}: #{value}"
     end
@@ -59,7 +41,7 @@ def code_breaker(guess, color, secret_code)
     4.times do 
       player_pick << color[gets.chomp.to_i - 1]
     end
-
+    
     p player_pick
 
     result = []
@@ -74,17 +56,34 @@ def code_breaker(guess, color, secret_code)
         end
       end
     end
-
+    
     puts "how close are you winning? #{result}"
-
+    
     if secret_code == player_pick
       puts "CodeBreaker Wins!"
       break
     end
-
+    
     guess += 1
-
+    
   end
 end
 
+loop do 
+
+  print "Would you like to become CodeMaker or CodeBreaker( M/B )?: "
+  player = gets.chomp.to_s
+
+  if player.upcase == "M"
+    break
+  elsif player.upcase == "B"
+    break
+  else 
+    puts "Invalid Input. Try Again"
+  end
+
+end
+
+code_maker(secret_code, color)
+p secret_code
 code_breaker(guess, color, secret_code)
