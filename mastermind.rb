@@ -94,6 +94,24 @@ class GameRunner
   end
 
   def self.play_breaker(game)
+    loop do
 
+      game.player_color.clear
+      until game.player_color.length == 4
+        game.set_player_colors 
+      end
+
+      until game.bot_color.length == 4
+        game.set_bot_colors
+      end
+
+      puts "maker: #{game.bot_color}"
+      puts "breaker: #{game.player_color}"
+      
+      game.evaluate_guess
+      game.display_winner
+
+      game.guess += 1
+    end 
   end
 end
