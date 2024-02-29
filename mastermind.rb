@@ -40,3 +40,7 @@ class MasterMindGame
     puts "stats: #{@result}"
   end
 end
+
+class GameRunner
+
+end
