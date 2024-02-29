@@ -115,3 +115,5 @@ class GameRunner
     end 
   end
 end
+
+GameRunner.run
