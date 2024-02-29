@@ -13,6 +13,8 @@ class MasterMindGame
     # flexible even if player is code maker or breaker. still gonna pick 4 numbers
     @player_color = []
     @bot_color = []
+    # to check how close codebreaker at winning
+    @result = []
   end
   
   def set_bot_colors
