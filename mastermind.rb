@@ -41,6 +41,17 @@ class MasterMindGame
     end
     puts "stats: #{@result}"
   end
+
+  def display_winner
+    if @guess > 12
+      abort "Game Over. CodeMaker Wins!"
+    end
+
+    if @player_color == @bot_color
+      abort "CodeBreaker Wins!"
+    end
+  end
+
 end
 
 class GameRunner
@@ -76,6 +87,9 @@ class GameRunner
       puts "breaker: #{game.bot_color}"
       game.evaluate_guess
 
+      game.display_winner
+
+      game.guess += 1
     end 
   end
 
