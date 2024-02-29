@@ -27,4 +27,16 @@ class MasterMindGame
     end
     @player_color << @color[gets.chomp.to_i - 1]
   end
+
+  def evaluate_guess
+    @result.clear
+    @player_color.each_with_index do |play, i|
+      @bot_color.each_with_index do |bot, j|
+        if play == bot
+          @result.push(i == j ? "red" : "white")
+        end
+      end
+    end
+    puts "stats: #{@result}"
+  end
 end
