@@ -42,5 +42,27 @@ class MasterMindGame
 end
 
 class GameRunner
+  def self.run
+    loop do
+      print "Would you like to become CodeMaker or CodeBreaker( M/B )?: "
+      player = gets.chomp.to_s.upcase
+      game = MasterMindGame.new(player)
 
+      if player == "M"
+        play_maker(game)
+      elsif player == "B"
+        play_breaker(game)
+      else 
+        puts "Invalid Input. Try Again"
+      end
+    end
+  end
+
+  def self.play_maker(game)
+
+  end
+
+  def self.play_breaker(game)
+
+  end
 end
