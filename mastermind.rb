@@ -1,7 +1,7 @@
 class MasterMindGame
   attr_accessor :color, :guess, :player, :player_color, :bot_color, :result
 
-  def intialize(player)
+  def initialize(player)
     # make player choice if he want to become code maker or breaker
     @player = player
     # setup var array color to insert 8 primary colors from index 0 to 7
@@ -15,6 +15,11 @@ class MasterMindGame
     @bot_color = []
   end
   
+  def set_bot_colors
+    uniq_color = @color[rand(0..7)] 
+    @bot_color << uniq_color unless @bot_color.include?(uniq_color)
+  end
+
 end
 
 
