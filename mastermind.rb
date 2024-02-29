@@ -20,8 +20,14 @@ class MasterMindGame
     @bot_color << uniq_color unless @bot_color.include?(uniq_color)
   end
 
+  def set_player_colors
+    puts "pick a number from 1 to 8: "
+    @color.each_with_index do |value, index|
+      puts "#{index+1}: #{value}"
+    end
+    @player_color << @color[gets.chomp.to_i - 1]
+  end
 end
-
 
 # CodeMaker
 def code_maker(secret_code, color)
