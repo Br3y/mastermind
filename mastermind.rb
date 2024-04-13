@@ -34,9 +34,7 @@ class MasterMindGame
     @result.clear
     @player_color.each_with_index do |play, i|
       @bot_color.each_with_index do |bot, j|
-        if play == bot
-          @result.push(i == j ? "red" : "white")
-        end
+        @result.push(i == j ? "red" : "white") if play == bot
       end
     end
     puts "stats: #{@result}"
