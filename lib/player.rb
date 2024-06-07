@@ -1,4 +1,4 @@
-class GameRunner
+class PlayerRunner
   def self.run
     loop do
       print "Would you like to become CodeMaker or CodeBreaker( M/B )?: "
