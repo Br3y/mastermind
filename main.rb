@@ -1,4 +1,4 @@
-require_relative "lib/game.rb"
-require_relative "lib/player.rb"
+require_relative "lib/game"
+require_relative "lib/player"
 
 PlayerRunner.run

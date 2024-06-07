@@ -9,7 +9,7 @@ class PlayerRunner
         play_maker(game)
       elsif player == "B"
         play_breaker(game)
-      else 
+      else
         puts "Invalid Input. Try Again"
       end
     end
@@ -17,15 +17,10 @@ class PlayerRunner
 
   def self.play_maker(game)
     loop do
-
-      until game.player_color.length == 4
-        game.set_player_colors 
-      end
+      game.set_player_colors until game.player_color.length == 4
 
       game.bot_color.clear
-      until game.bot_color.length == 4
-        game.set_bot_colors
-      end
+      game.set_bot_colors until game.bot_color.length == 4
 
       puts "maker: #{game.player_color}"
       puts "breaker: #{game.bot_color}"
@@ -34,28 +29,23 @@ class PlayerRunner
       game.display_winner
 
       game.guess += 1
-    end 
+    end
   end
 
   def self.play_breaker(game)
     loop do
-
       game.player_color.clear
-      until game.player_color.length == 4
-        game.set_player_colors 
-      end
+      game.set_player_colors until game.player_color.length == 4
 
-      until game.bot_color.length == 4
-        game.set_bot_colors
-      end
+      game.set_bot_colors until game.bot_color.length == 4
 
       puts "maker: #{game.bot_color}"
       puts "breaker: #{game.player_color}"
-      
+
       game.evaluate_guess
       game.display_winner
 
       game.guess += 1
-    end 
+    end
   end
 end
